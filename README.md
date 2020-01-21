@@ -1,7 +1,7 @@
 # WP-CLI
 WP-CLi is the official command line tool for WordPress. This image variant does not contain WordPress itself, but instead contains.
 
-**Current Tag: cli-2.4.0-php7.4**
+**Current WP-CLI Tag: v2.4.0**
 
 ## Usage
 For WP-CLI to interact with a WordPress install, it needs access to the on-disk files of the WordPress install, and access to the corresponding database.
