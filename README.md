@@ -6,7 +6,7 @@ WP-CLi is the official command line tool for WordPress. This image variant does 
 ## Usage
 For WP-CLI to interact with a WordPress install, it needs access to the on-disk files of the WordPress install, and access to the corresponding database.
 
-Two ways of accomplishing this are outlined below. To simplify wp-cli execution, the entire `docker run` command is wrapped inside a shell script.
+Two of the many ways of accomplishing this are outlined below. Also, to simplify wp-cli execution, the entire `docker run` command is wrapped inside a shell script.
 
 ### Via An Environment file
 
@@ -36,7 +36,7 @@ exec docker run --rm -i ${TTY_FLAG} \
      --env-file ./.env \
      --volume "$(pwd)":/etc/nginx/html \
      --workdir /etc/nginx/html \
-     "wordpress:${VERSION}" wp "$@";
+     "pam79/wp:${VERSION}" wp "$@";
 ```
 
 Install wp-cli script globally
@@ -51,12 +51,10 @@ Here is a truncated example of a .env file with the parts relevant to wp-cli:
 $ cat .env
 ```sh
 ...
-DB_PORT=3306
-DB_HOST=192.168.1.252
-DB_CONNECTION=mysql
-DB_DATABASE=agility-web-dev
-DB_USERNAME=agility-web-dev
+DB_NAME=wordpress
+DB_USER=wordpress
 DB_PASSWORD=secret
+DB_HOST=192.168.1.252:3306
 ...
 ```
 
@@ -68,7 +66,7 @@ $ cat wp-config.php
 define( 'DB_NAME', getenv('DB_NAME') );
 define( 'DB_USER', getenv('DB_USER') );
 define( 'DB_PASSWORD', getenv('DB_PASSWORD') );
-define( 'DB_HOST', getenv('DB_HOST'). ":" . getenv('DB_PORT') );
+define( 'DB_HOST', getenv('DB_HOST') );
 ...
 ```
 
@@ -100,7 +98,7 @@ exec docker run --rm -i ${TTY_FLAG} \
      --network container:some-wordpress \
      --volume "$(pwd)":/etc/nginx/html \
      --workdir /etc/nginx/html \
-     "wordpress:${VERSION}" wp "$@";
+     "pam79/wp:${VERSION}" wp "$@";
 ```
 
 Install wp-cli script globally
