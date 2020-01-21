@@ -1,5 +1,5 @@
 # WP-CLI
-WP-CLi is the official command line tool for WordPress. This image variant does not contain WordPress itself, but instead contains.
+WP-CLi is the official command line tool for WordPress. This image variant does not contain WordPress itself, but instead contains only the cli tool.
 
 **Current WP-CLI Tag: v2.4.0**
 
@@ -139,4 +139,4 @@ To update the redis object cache drop-in
 $ wp redis update-dropin
 ```
 
-For more info on wp-cli, visit their [official website](https://wp-cli.org/).
+For more info on wp-cli commands, visit their [official website](https://wp-cli.org/).
